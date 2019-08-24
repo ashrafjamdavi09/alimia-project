@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+
+<br/><br/><br/><br/>
+<div class="container">
+  <form class="form-signin" method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-group col-md-4 offset-md-5">
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    </div>
+    <div class="form-group col-md-4 offset-md-4">
+      <label for="InputuserName">User Name</label>
+      <input type="text" class="form-control" id="InputuserName" placeholder="User Name">
+    </div>
+    <div class="form-group col-md-4 offset-md-4">
+      <label for="InputPassword">DOB</label>
+      <input type="password" class="form-control" id="InputPassword" placeholder="Password">
+    </div>
+    <div class="form-group col-md-4 offset-md-4">
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </div>
+  </form>
+</div>
+
+{% endblock %}
