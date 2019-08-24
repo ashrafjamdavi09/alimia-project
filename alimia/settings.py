@@ -32,9 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
-    'admissions.apps.AdmissionsConfig',
     'students.apps.StudentsConfig',
     'alimiaAdmin.apps.AlimiaadminConfig',
+    'jamatSubject.apps.JamatsubjectConfig',
+    'registration.apps.RegistrationConfig',
     'chartjs',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'alimia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alimiadb',
+        'NAME': 'alimiadb1',
         'USER':'postgres',
         'PASSWORD':'postgres',
         'HOST':'localhost',
