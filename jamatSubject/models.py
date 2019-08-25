@@ -11,6 +11,17 @@ class Jamaat(models.Model):
     class Meta:
         db_table = 'Jamaat'
 
+class Jamaat(models.Model):
+    jamaatid = models.AutoField(primary_key=True)
+    jamaatname = models.CharField(max_length=50)
+    createtime = models.DateTimeField()
+    updatetime = models.DateTimeField()
+    createuserid = models.IntegerField()
+    updateuserid = models.IntegerField()
+
+    class Meta:
+        db_table = 'Jamaat'
+
 class Subject(models.Model):
 
     SubjectID = models.AutoField(primary_key=True)
