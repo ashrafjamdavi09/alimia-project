@@ -1,0 +1,28 @@
+{% extends 'adminBase.html' %}
+
+{% load staticfiles %}
+
+{% block AdminBaseContent %}
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Class</th>
+      <th scope="col">Name</th>
+      <th scope="col">Father's Name</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for registration in allregistration.all %}
+    <tr>
+      <th scope="row">{{ registration.jamaatid.jamaatname}} </th>
+      <td>{{ registration.studentfirstname }}</td>
+      <td>{{ registration.fathersname }} </td>
+      <td>{{ registration.address1 }} </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

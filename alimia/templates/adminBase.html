@@ -18,27 +18,32 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Bootstrap Sidebar</h3>
+              <h5>Welcome Ashraf</h5>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Dummy Heading</p>
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
-                </li>
+              <!--
+              <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li>
+                          <a href="#">Home 1</a>
+                      </li>
+                      <li>
+                          <a href="#">Home 2</a>
+                      </li>
+                      <li>
+                          <a href="#">Home 3</a>
+                      </li>
+                  </ul>
+                </li> -->
                 <li>
-                    <a href="#">About</a>
+                    <a href="{% url 'adminHome' %}">Admin Home</a>
+                    <a href="{% url 'regisrations' %}">Admissions</a>
+                    <a href="#">Students</a>
+                    <a href="#">Blogs</a>
+                    <a href="#">Reports</a>
+                    <!--
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -50,7 +55,7 @@
                         <li>
                             <a href="#">Page 3</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </li>
             </ul>
         </nav>
