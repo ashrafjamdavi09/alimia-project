@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<div class="container">
+  <div class="jumbotron">
+    <div class="text-center">
+      <h2> Please Login </h2>
+    </div>
+    <br>
+    <form method="post">
+      {% csrf_token %}
+      {% if form.non_field_errors %}<div class="alert alert-danger"> {{form.non_field_errors}}</div>{% endif %}
+      {% load widget_tweaks %}
+      {% for field in form %}
+      <div class="form-group {% if field.errors %} alert alert-danger {% endif %} col-md-4 offset-md-4">
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {% render_field field class="form-control" %}
+        {% if field.help_text %}<small class="text-muted"> {{field.help_text}}</small>{% endif %}
+      </div>
+      {% endfor %}
+      <br/>
+      <div class="form-group col-md-4 offset-md-4">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

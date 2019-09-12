@@ -2,51 +2,43 @@
 <html lang="en">
   <head>
     {% load staticfiles %}
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Jekyll v3.8.5">
     <title>Darul Uloom Alimia</title>
-
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/notourdu" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Home.css' %}">
+
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand navbar-right" href="{% url 'home' %}">Darul Uloom Alimia Jamda Shahi</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-item nav-link active" href="#">About <span class="sr-only">(current)</span></a>
-              <a class="nav-item nav-link active" href="{% url 'registration' %}">Admissions</a>
-              <a class="nav-item nav-link active" href="{% url 'login' %}">Login</a>
-              <a class="nav-item nav-link active" href="{% url 'blogs' %}">Blog</a>
+    <div class="container-fluid">
+      <header>
+        <div id="alimiaName"><h1> دارالعلوم علیمیہ جمداشاہی بستی</h1></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            {% if user.is_authenticated %}
+            <a class="navbar-brand navbar-right" href="{% url 'adminHome' %}">Darul Uloom Alimia Jamda Shahi</a>
+            {% else %}
+            <a class="navbar-brand navbar-right" href="{% url 'home' %}">Darul Uloom Alimia Jamda Shahi</a>
+            {% endif %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="#">About <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="{% url 'registration' %}">Admissions</a>
+                {% if user.is_authenticated %}
+                <a class="nav-item nav-link active" href="{% url 'logout' %}">Logout</a>
+                {% else %}
+                <a class="nav-item nav-link active" href="{% url 'login' %}">Login</a>
+                {% endif %}
+                <a class="nav-item nav-link active" href="{% url 'blogs' %}">Blog</a>
+              </div>
             </div>
-          </div>
-      </div>
-      </nav>
-    </header>
+        </div>
+        </nav>
+      </header>
+    </div>
 
     <div class="container-fluid">
 

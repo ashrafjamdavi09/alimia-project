@@ -27,7 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+LOGIN_URL = "login"
+LOGIN_REDIRECT_URL = "adminHome"
+LOGOUT_REDIRECT_URL = "home"
 # Application definition
 
 INSTALLED_APPS = [
@@ -43,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -82,9 +85,9 @@ WSGI_APPLICATION = 'alimia.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'alimiadb1',
+        'NAME': 'alimiadb',
         'USER':'postgres',
-        'PASSWORD':'postgres',
+        'PASSWORD':'',
         'HOST':'localhost',
         'PORT':'5432',
     }

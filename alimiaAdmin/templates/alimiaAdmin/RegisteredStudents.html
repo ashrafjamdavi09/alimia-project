@@ -3,26 +3,59 @@
 {% load staticfiles %}
 
 {% block AdminBaseContent %}
+<div class="container-fluid">
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <select id="inputClass" class="form-control" name="jamaatid">
+          {% for jamaat in allJamaat.all %}
+            <option value="{{ jamaat.jamaatid }}">{{ jamaat.jamaatname }}</option>
+          {% endfor %}
+    </select>
+    </div>
+    <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"">
+  </div>
+  <br>
+  <table class="table" id="myTable">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Class</th>
+        <th scope="col">Name</th>
+        <th scope="col">Father's Name</th>
+        <th scope="col">Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for registration in allregistration.all %}
+      <tr>
+        <th scope="row">{{ registration.jamaatid.jamaatname}} </th>
+        <td>{{ registration.studentfirstname }}</td>
+        <td>{{ registration.fathersname }} </td>
+        <td>{{ registration.address1 }} </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
 
-<table class="table">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">Class</th>
-      <th scope="col">Name</th>
-      <th scope="col">Father's Name</th>
-      <th scope="col">Address</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for registration in allregistration.all %}
-    <tr>
-      <th scope="row">{{ registration.jamaatid.jamaatname}} </th>
-      <td>{{ registration.studentfirstname }}</td>
-      <td>{{ registration.fathersname }} </td>
-      <td>{{ registration.address1 }} </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
 
 {% endblock %}

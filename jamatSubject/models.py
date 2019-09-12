@@ -14,6 +14,7 @@ class Jamaat(models.Model):
 class Jamaat(models.Model):
     jamaatid = models.AutoField(primary_key=True)
     jamaatname = models.CharField(max_length=50)
+    jamaatnameInUrdu = models.CharField(max_length=50)
     createtime = models.DateTimeField()
     updatetime = models.DateTimeField()
     createuserid = models.IntegerField()
@@ -21,6 +22,9 @@ class Jamaat(models.Model):
 
     class Meta:
         db_table = 'Jamaat'
+
+    def __str__(self):
+        return self.jamaatname + "---" + self.jamaatnameInUrdu
 
 class Subject(models.Model):
 
